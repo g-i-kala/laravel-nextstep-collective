@@ -2,15 +2,19 @@
 
 namespace Tests\Unit;
 
-use App\Models\Employer;
 use App\Models\Job;
-use PHPUnit\Framework\TestCase;
+use App\Models\Employer;
+use Tests\TestCase;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class JobTest extends TestCase
 {
     /**
      * A basic unit test example.
      */
+
+    use RefreshDatabase;
+    
     public function test_job_belongs_to_employer(): void
     {
         $employer = Employer::factory()->create();
@@ -20,7 +24,21 @@ class JobTest extends TestCase
 
         $this->assertTrue($job->employer->is($employer));
     }
+
+    public function test_has_a_tag(): void
+    {
+        $job = Job::factory()->create();
+        
+        $job->tag('Frontend');
+
+        $this->assertTrue($job->tags->toHaveCount(1));
+    }
+
 }
+
+
+
+
 
 
 
