@@ -31,7 +31,8 @@ class JobTest extends TestCase
         
         $job->tag('Frontend');
 
-        $this->assertTrue($job->tags->toHaveCount(1));
+        //$this->assertTrue($job->tags->toHaveCount(1));
+        $this->assertCount(1, $job->tags);
     }
 
 }
