@@ -5,7 +5,7 @@
 
     <div class="py-8">
         <h3 class="group-hover:text-blue-600 text-xl text-bold transition-colors duration-300">
-            <a href="{{ $job->url }}">
+            <a href="{{ $job->url }}" target="_blank">
                 {{ $job->title }}
             </a>
         </h3>
@@ -19,6 +19,6 @@
                 <x-tag :$tag size="small"/>
             @endforeach
         </div>
-        <x-employer-logo :width="42"/>
+        <x-employer-logo :employer="$job->employer" :width="42"/>
     </div>
 </x-panel>
