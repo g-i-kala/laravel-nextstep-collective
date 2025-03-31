@@ -72,7 +72,7 @@ class JobController extends Controller
         $userId = Auth::id();
         $employer = Employer::where('user_id', $userId)->first();
         
-        $jobs = Job::with('employer')->where('employer_id', $employer->id)->simplePaginate(5);
+        $jobs = Job::latest()->with('employer')->where('employer_id', $employer->id)->simplePaginate(3    );
 
         return view('jobs.show', [
             'jobs' => $jobs
