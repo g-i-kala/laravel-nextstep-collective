@@ -26,6 +26,7 @@
             </div>
             @auth
                 <div class="flex space-x-6 font-bold">
+                    <a href="/jobs/show">My Jobs</a>
                     <a href="/jobs/create">Post a Job</a>
                     <form method="POST" action="/logout">
                         @csrf

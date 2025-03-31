@@ -10,6 +10,7 @@ use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreJobRequest;
 use App\Http\Requests\UpdateJobRequest;
+use App\Models\Employer;
 
 class JobController extends Controller
 {
@@ -65,9 +66,17 @@ class JobController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Job $job)
+    public function show()
     {
-        //
+        //fetch jobs that are the current logged in user jobs
+        $userId = Auth::id();
+        $employer = Employer::where('user_id', $userId)->first();
+        
+        $jobs = Job::with('employer')->where('employer_id', $employer->id)->simplePaginate(5);
+
+        return view('jobs.show', [
+            'jobs' => $jobs
+        ]);
     }
 
     /**
