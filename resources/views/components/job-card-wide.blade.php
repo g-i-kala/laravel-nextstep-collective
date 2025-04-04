@@ -23,10 +23,17 @@
         @auth
             {{-- @if ( auth()->user()->employer && auth()->user()->employer->id === $job->employer_id )      --}}
             @if ( auth()->user()->ownsJob($job) )     
-                <p></p>
+                <p>{{ $job->id }}</p>
                 <div class="text-right">
-                    <x-forms.button class="py-1 px-1 text-xs hover:bg-red-500">Delete</x-forms.button>
-                </div>        
+                    <x-forms.button form="delete-form" class="py-1 px-1 text-xs hover:bg-red-500">Delete</x-forms.button>
+                </div>     
+
+                <form method="POST" action="/jobs/{{ $job->id }}" id="delete-form" class="hidden">
+                    {{-- <input type="hidden" name='jobId' value={{ $job->id }}> --}}
+                    @csrf
+                    @method('DELETE')
+                  </form>
+            
             @endif
         @endauth
         
