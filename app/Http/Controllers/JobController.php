@@ -45,7 +45,7 @@ class JobController extends Controller
             'title' => ['required'],
             'salary' => ['required'],
             'location' => ['required'],
-            'schedule' => ['required', Rule::in(['Part Time'],['Full Time'])],
+            'schedule' => ['required', Rule::in(['Part Time','Full Time'])],
             'url' => ['required', 'active_url'],
             'tags' => ['nullable'],
         ]);
@@ -72,7 +72,7 @@ class JobController extends Controller
         $userId = Auth::id();
         $employer = Employer::where('user_id', $userId)->first();
         
-        $jobs = Job::latest()->with('employer')->where('employer_id', $employer->id)->simplePaginate(3    );
+        $jobs = Job::latest()->with('employer')->where('employer_id', $employer->id)->simplePaginate(5);
 
         return view('jobs.show', [
             'jobs' => $jobs
