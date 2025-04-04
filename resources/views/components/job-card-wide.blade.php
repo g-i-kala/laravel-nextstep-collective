@@ -21,7 +21,8 @@
             @endforeach
         </div>
         @auth
-            @if ( auth()->user()->employer && auth()->user()->employer->id === $job->employer_id )     
+            {{-- @if ( auth()->user()->employer && auth()->user()->employer->id === $job->employer_id )      --}}
+            @if ( auth()->user()->ownsJob($job) )     
                 <p></p>
                 <div class="text-right">
                     <x-forms.button class="py-1 px-1 text-xs hover:bg-red-500">Delete</x-forms.button>

@@ -52,4 +52,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(Employer::class);
     }
+
+    public function ownsJob($job)
+    {
+        return $this->employer && $this->employer->id === $job->employer_id; 
+    }
 }
