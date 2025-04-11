@@ -84,7 +84,6 @@ class JobController extends Controller
      */
     public function edit(Job $job)
     {
-        dd($job->id);
         return view('jobs.edit', [
             'job' => $job]);
     }
@@ -102,7 +101,6 @@ class JobController extends Controller
      */
     public function destroy(Job $job)
     {
-        dd($job->id);
         $job->delete();
         return redirect('/jobs/show');
     }
