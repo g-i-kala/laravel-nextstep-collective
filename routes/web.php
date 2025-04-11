@@ -12,7 +12,7 @@ Route::get('/jobs/create', [JobController::class, 'create'])->middleware('auth')
 Route::post('/jobs', [JobController::class, 'store'])->middleware('auth');
 Route::get('/jobs/show', [JobController::class, 'show'])->middleware('auth');
 Route::delete('/jobs/{job}', [JobController::class, 'destroy'])->middleware('auth');
-Route::get('/jobs/edit', [JobController::class, 'edit'])->middleware('auth');
+Route::patch('/jobs/edit/{job}', [JobController::class, 'edit'])->middleware('auth');
 
 Route::get('/search', SearchController::class);
 Route::get('/tags/{tag:name}', TagController::class);

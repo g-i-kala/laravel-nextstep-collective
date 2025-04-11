@@ -26,23 +26,25 @@
                 <p>{{ $job->id }}</p>
                 <div class="flex flex-row space-x-4 justify-end items-center">
                     <div class="text-right">
-                        <x-link-button href="/jobs/edit" class="py-1 px-1 text-xs hover:bg-blue-400">Edit</x-link-button>
+                        <x-forms.button form="update-form-{{ $job->id }}" class="py-1 px-1 text-xs hover:bg-blue-400">Edit <p>{{ $job->id }}</p> </x-forms.button>
                     </div>
                     <div class="text-right">
-                        <x-forms.button form="delete-form" class="py-1 px-1 text-xs hover:bg-red-500">Delete</x-forms.button>
+                        <x-forms.button form="delete-form-{{ $job->id }}" class="py-1 px-1 text-xs hover:bg-red-500">Delete <p>{{ $job->id }}</p></x-forms.button>
                     </div>
-                </div>   
+                 
 
-                <form method="POST" action="/jobs/{{ $job->id }}" id="delete-form" class="hidden">
-                    {{-- <input type="hidden" name='jobId' value={{ $job->id }}> --}}
-                    @csrf
-                    @method('DELETE')
-                </form>
-                <form method="POST" action="/jobs/{{ $job->id }}" id="delete-form" class="hidden">
-                    {{-- <input type="hidden" name='jobId' value={{ $job->id }}> --}}
-                    @csrf
-                    @method('DELETE')
-                </form>
+                    <form method="POST" action="/jobs/edit/{{ $job->id }}" id="update-form-{{ $job->id }}" class="hidden">
+                        {{-- <input type="hidden" name='jobId' value={{ $job->id }}> --}}
+                        @csrf
+                        @method('PATCH')
+                    </form>
+
+                    <form method="POST" action="/jobs/{{ $job->id }}" id="delete-form-{{ $job->id }}" class="hidden">
+                        {{-- <input type="hidden" name='jobId' value={{ $job->id }}> --}}
+                        @csrf
+                        @method('DELETE')
+                    </form>
+                </div>  
             
             @endif
         @endauth
