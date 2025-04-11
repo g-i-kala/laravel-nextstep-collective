@@ -41,16 +41,16 @@ class JobController extends Controller
      */
     public function store(Request $request)
     {
-       $attributes = $request->validate([
-            'title' => ['required'],
-            'salary' => ['required'],
-            'location' => ['required'],
-            'schedule' => ['required', Rule::in(['Part Time','Full Time'])],
-            'url' => ['required', 'active_url'],
-            'tags' => ['nullable'],
-        ]);
+        $attributes = $request->validate([
+             'title' => ['required'],
+             'salary' => ['required'],
+             'location' => ['required'],
+             'schedule' => ['required', Rule::in(['Part Time','Full Time'])],
+             'url' => ['required', 'active_url'],
+             'tags' => ['nullable'],
+         ]);
 
-        $attributes['featured'] = $request->has('featured'); 
+        $attributes['featured'] = $request->has('featured');
 
         $job = Auth::user()->employer->jobs()->create(Arr::except($attributes, 'tags'));
 
@@ -71,7 +71,7 @@ class JobController extends Controller
         //fetch jobs that are the current logged in user jobs
         $userId = Auth::id();
         $employer = Employer::where('user_id', $userId)->first();
-        
+
         $jobs = Job::latest()->with('employer')->where('employer_id', $employer->id)->simplePaginate(5);
 
         return view('jobs.show', [
@@ -84,7 +84,7 @@ class JobController extends Controller
      */
     public function edit(Job $job)
     {
-        //
+        return view('jobs.edit');
     }
 
     /**
@@ -100,7 +100,7 @@ class JobController extends Controller
      */
     public function destroy(Job $job)
     {
-        $job->delete(); 
+        $job->delete();
         return redirect('/jobs/show');
     }
 }
