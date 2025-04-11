@@ -93,7 +93,10 @@ class JobController extends Controller
      */
     public function update(UpdateJobRequest $request, Job $job)
     {
-        //
+        // Validate
+        // Authorize
+        // Update
+        // redirect to /jobs/show
     }
 
     /**
