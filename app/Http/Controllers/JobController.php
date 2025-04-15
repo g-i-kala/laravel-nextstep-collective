@@ -91,13 +91,33 @@ class JobController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Job $job)
+    public function update(Job $job, Request $request)
     {
-        dd('robie update');
-        // Validate
-        // Authorize
-        // Update
+        $attributes = $request->validate([
+            'title' => ['required'],
+            'salary' => ['required'],
+            'location' => ['required'],
+            'schedule' => ['required', Rule::in(['Part Time','Full Time'])],
+            'url' => ['required', 'active_url'],
+            'tags' => ['nullable'],
+        ]);
+
+        $attributes['featured'] = $request->has('featured');
+
+        // Authorize Update
+        $this->authorize('update', $job);
+
+        $job->update(Arr::except($attributes, 'tags'));
+
+
+        if ($attributes['tags'] ?? false) {
+            foreach (explode(',', $attributes['tags']) as $tag) {
+                $job->tag($tag);
+            }
+        }
+
         // redirect to /jobs/show
+        return redirect('/jobs/show');
     }
 
     /**
@@ -105,6 +125,7 @@ class JobController extends Controller
      */
     public function destroy(Job $job)
     {
+        $this->authorize('delete', $job);
         $job->delete();
         return redirect('/jobs/show');
     }
