@@ -68,6 +68,9 @@ class JobController extends Controller
      */
     public function show()
     {
+        // authorize
+        $this->authorize('viewAny', Job::class);
+
         //fetch jobs that are the current logged in user jobs
         $userId = Auth::id();
         $employer = Employer::where('user_id', $userId)->first();
@@ -111,9 +114,9 @@ class JobController extends Controller
 
 
         if ($attributes['tags'] ?? false) {
-            foreach (explode(',', $attributes['tags']) as $tag) {
-                $job->tag($tag);
-            }
+
+            $tags = explode(',', $attributes['tags']);
+            $job->retag($tags);
         }
 
         // redirect to /jobs/show

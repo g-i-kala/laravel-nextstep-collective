@@ -18,17 +18,26 @@ class Job extends Model
     {
         $tag = Tag::firstOrCreate(['name' => $name]);
 
-        $this->tags()->attach($tag);
+        $this->tags()->syncWithoutDetaching($tag);
+    }
+
+    public function retag(array $tags)
+    {
+        $tags = collect($tags)->map(function ($tag) {
+            return Tag::firstOrCreate(['name' => $tag])->id;
+        });
+
+        $this->tags()->sync($tags);
     }
 
     public function tags(): BelongsToMany
     {
         return $this->belongsToMany(Tag::class);
     }
-    public function employer(): BelongsTo 
+    public function employer(): BelongsTo
     {
         return $this->belongsTo(Employer::class);
     }
 
-    
+
 }
