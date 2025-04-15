@@ -2,7 +2,9 @@
 <x-layout>
     <x-page-heading>Edit Job</x-page-heading>
 
-    <x-forms.form method="POST" action="/jobs">
+    <x-forms.form method="POST" action="/jobs/update/{{ $job->id}}">
+        @csrf
+        @method('PATCH')
         <x-forms.input label="Title" name="title" value="{{ $job->title }}" />
         <x-forms.input label="Salary" name="salary" value="{{ $job->salary }}" />
         <x-forms.input label="Location" name="location" value="{{ $job->location }}" />

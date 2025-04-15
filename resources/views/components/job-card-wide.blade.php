@@ -31,12 +31,10 @@
                     <div class="text-right">
                         <x-forms.button form="delete-form-{{ $job->id }}" class="py-1 px-1 text-xs hover:bg-red-500">Delete</x-forms.button>
                     </div>
-                 
 
                     <form method="POST" action="/jobs/edit/{{ $job->id }}" id="update-form-{{ $job->id }}" class="hidden">
                         {{-- <input type="hidden" name='jobId' value={{ $job->id }}> --}}
                         @csrf
-                        @method('PATCH')
                     </form>
 
                     <form method="POST" action="/jobs/{{ $job->id }}" id="delete-form-{{ $job->id }}" class="hidden">
