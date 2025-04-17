@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Job;
 use App\Models\Tag;
+use App\Models\Employer;
 use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use App\Http\Requests\JobRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreJobRequest;
 use App\Http\Requests\UpdateJobRequest;
-use App\Models\Employer;
 
 class JobController extends Controller
 {
@@ -39,18 +40,9 @@ class JobController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(JobRequest $request)
     {
-        $attributes = $request->validate([
-             'title' => ['required'],
-             'salary' => ['required'],
-             'location' => ['required'],
-             'schedule' => ['required', Rule::in(['Part Time','Full Time'])],
-             'url' => ['required', 'active_url'],
-             'tags' => ['nullable'],
-         ]);
-
-        $attributes['featured'] = $request->has('featured');
+        $attributes = $request->validated();
 
         $job = Auth::user()->employer->jobs()->create(Arr::except($attributes, 'tags'));
 
@@ -94,24 +86,13 @@ class JobController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Job $job, Request $request)
+    public function update(Job $job, JobRequest $request)
     {
-        $attributes = $request->validate([
-            'title' => ['required'],
-            'salary' => ['required'],
-            'location' => ['required'],
-            'schedule' => ['required', Rule::in(['Part Time','Full Time'])],
-            'url' => ['required', 'active_url'],
-            'tags' => ['nullable'],
-        ]);
-
-        $attributes['featured'] = $request->has('featured');
-
+        $attributes = $request->validated();
         // Authorize Update
         $this->authorize('update', $job);
 
         $job->update(Arr::except($attributes, 'tags'));
-
 
         if ($attributes['tags'] ?? false) {
 
