@@ -82,7 +82,9 @@ To get started with the application, follow these steps:
 ## Contributing
 
 Contributions are welcome! Please submit a pull request or open an issue for any improvements or bug fixes.
+Contributions are welcome! Please submit a pull request or open an issue for any improvements or bug fixes.
 
 ## License
 
+This project is open-source and available under the [MIT License](LICENSE).
 This project is open-source and available under the [MIT License](LICENSE).
