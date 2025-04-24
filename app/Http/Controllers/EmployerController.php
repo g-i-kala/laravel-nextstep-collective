@@ -6,5 +6,11 @@ use Illuminate\Http\Request;
 
 class EmployerController extends Controller
 {
-    //
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        dd('employers');
+    }
 }

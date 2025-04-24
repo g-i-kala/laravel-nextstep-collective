@@ -1,12 +1,12 @@
 @props(['job'])
 
-<x-panel class="flex flex-row gap-6">
+<x-panel class="flex flex-row gap-6 shadow-md shadow-gray-700 transition-shadow duration-300 hover:shadow-gray-400 hover:shadow-lg">
     <div>
         <x-employer-logo :employer="$job->employer"/>
     </div>
     
     <div class="flex-1 flex flex-col ">
-        <a href="#" class="self-start text-sm text-gray-200">{{ $job->employer->name }}</a>
+        <a href="#" class="self-start text-sm text-gray-500">{{ $job->employer->name }}</a>
         <h3 class="font-bold text-xl mt-3 group-hover:text-blue-600 transition-colors duration-300">
             <a href="{{ $job->url }}" target="_blank">
                 {{ $job->title }}

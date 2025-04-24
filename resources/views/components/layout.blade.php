@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,400..600;1,100..900&display=swap" rel="stylesheet">
     @vite (['resources/js/app.js'])
 </head>
-<body class="bg-black text-white font-henken pb-20">
+<body class="bg-white text-black font-henken pb-20">
     <div class="wrapper px-10">
         <nav class="nav flex justify-between items-center p-4 border-b border-white/10">
             <div>
@@ -19,10 +19,10 @@
                 </a>
             </div>
             <div class="space-x-6 font-bold">
-                <a href="#">Job</a>
-                <a href="#">Carrers</a>
-                <a href="#">Saleries</a>
-                <a href="#">Companies</a>
+                <a href="/">Jobs</a>
+                <a href="/salaries">Saleries</a>
+                <a href="/companies">Companies</a>
+                <a href="/carrers">Carrers</a>
             </div>
             @auth
                 <div class="flex space-x-6 font-bold">
