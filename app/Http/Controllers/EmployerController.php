@@ -20,14 +20,8 @@ class EmployerController extends Controller
             ->select('employers.*', 'jobs.title', 'jobs.location')
             ->distinct();
 
-
-        if (!empty($nameFilter)) {
-            $query->where('name', 'like', '%' . $nameFilter . '%');
-        }
-
-        if (!empty($nameFilter)) {
-            $query->where('location', 'like', '%' . $locationFilter . '%');
-        }
+        $query->filterByName($nameFilter);
+        $query->filterByLocation($locationFilter);
 
         $employers = $query->get();
 

@@ -39,5 +39,27 @@ class Job extends Model
         return $this->belongsTo(Employer::class);
     }
 
+    /**
+     * Scope to filter jobs by title.
+     */
+    public function scopeFilterByTitle($query, $title)
+    {
+        if (!empty($title)) {
+            $query->where('title', 'like', '%' . $title . '%');
+        }
 
+        return $query;
+    }
+
+    /**
+     * Scope to filter jobs by location.
+     */
+    public function scopeFilterByLocation($query, $location)
+    {
+        if (!empty($location)) {
+            $query->where('location', 'like', '%' . $location . '%');
+        }
+
+        return $query;
+    }
 }

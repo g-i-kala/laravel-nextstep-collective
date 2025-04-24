@@ -12,6 +12,8 @@ class SalaryController extends Controller
      */
     public function index(Request $request)
     {
+
+
         $query = Job::query();
         if ($request->filled('title')) {
             $query->where('title', 'like', '%' . $request->title . '%');
