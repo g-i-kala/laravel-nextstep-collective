@@ -11,6 +11,8 @@
 
 Welcome to the Job Board Application - NextStep Collective! This project is a web-based platform for posting and browsing job listings. It is built with Laravel and showcases various features and best practices in web development.
 
+Online demo at Laravel Cloud: https://nextstep-collective-main-groblg.laravel.cloud
+
 ## Features
 
 - **CRUD Operations**: 
