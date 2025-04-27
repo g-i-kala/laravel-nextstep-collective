@@ -25,7 +25,9 @@
             <tbody>
                 @foreach($salaries as $salary)
                     <tr class="border-t">
-                        <td class="p-2 border">{{ $salary->title }}</td>
+                        <td class="p-2 border">
+                            <a href="{{ $salary->url }}" class="hover:text-blue-600">{{ $salary->title }}</a>
+                        </td>
                         <td class="p-2 border">${{ number_format($salary->avg, 0) }}</td>
                     </tr>
                 @endforeach

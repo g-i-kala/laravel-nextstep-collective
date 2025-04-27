@@ -19,7 +19,7 @@ Route::delete('/jobs/{job}', [JobController::class, 'destroy'])->middleware('aut
 Route::post('/jobs/edit/{job}', [JobController::class, 'edit'])->middleware('auth');
 Route::patch('/jobs/update/{job}', [JobController::class, 'update'])->middleware('auth');
 
-Route::get('/carrers', [CareerController::class, 'index']);
+Route::get('/carrers', CareerController::class);
 Route::get('/salaries', [SalaryController::class, 'index']);
 Route::get('/companies', [EmployerController::class, 'index']);
 

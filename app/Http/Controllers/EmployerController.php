@@ -17,7 +17,7 @@ class EmployerController extends Controller
 
         $query = Employer::query()
             ->join('jobs', 'employers.id', '=', 'jobs.employer_id')
-            ->select('employers.*', 'jobs.title', 'jobs.location')
+            ->select('employers.*', 'jobs.title AS jobTitle', 'jobs.location AS jobLocation', 'jobs.url AS jobUrl')
             ->distinct();
 
         $query->filterByName($nameFilter);

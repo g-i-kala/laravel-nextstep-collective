@@ -25,8 +25,10 @@
                 @foreach($employers as $employer)
                     <tr class="border-t">
                         <td class="p-2 border">{{ $employer->name }}</td>
-                        <td class="p-2 border"> {{ $employer->title }} </td>
-                        <td class="p-2 border">{{ $employer->location }}</td>
+                        <td class="p-2 border">
+                              <a href="{{ $employer->jobUrl }}" class="hover:text-blue-600"> {{ $employer->jobTitle }} 
+                            </td>
+                        <td class="p-2 border">{{ $employer->jobLocation }}</td>
                     </tr>
                 @endforeach
             </tbody>

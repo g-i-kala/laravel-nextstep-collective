@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,400..600;1,100..900&display=swap" rel="stylesheet">
     @vite (['resources/js/app.js'])
 </head>
-<body class="bg-white text-black font-henken pb-20">
+<body class="bg-white text-black font-henken">
     <x-partials.header />
     <div class="wrapper px-10">
       

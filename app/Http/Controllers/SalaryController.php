@@ -21,7 +21,7 @@ class SalaryController extends Controller
         $query->filterByTitle($titleFilter);
 
         $salaries = $query
-            ->selectRaw('title,  AVG(salary) as avg')
+            ->selectRaw('title,  AVG(salary) as avg, url')
             ->groupBy('title')
             ->orderBy('avg_max', 'desc')
             ->get();
