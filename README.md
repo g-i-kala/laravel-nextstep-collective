@@ -9,7 +9,7 @@
 
 # Job Board Application
 
-Welcome to the Job Board Application! This project is a web-based platform for posting and browsing job listings. It is built with Laravel and showcases various features and best practices in web development.
+Welcome to the Job Board Application - NextStep Collective! This project is a web-based platform for posting and browsing job listings. It is built with Laravel and showcases various features and best practices in web development.
 
 ## Features
 
@@ -26,6 +26,7 @@ Welcome to the Job Board Application! This project is a web-based platform for p
 
 - **Search Functionality**:
   - Advanced search options to easily find job listings.
+  - Advanced filtering for Jobs, Salaries etc.
 
 - **Continuous Feature Development**:
   - Regularly adding new features to enhance functionality.
@@ -51,7 +52,7 @@ To get started with the application, follow these steps:
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/yourusername/job-board.git
+   git clone https://github.com/g-i-kala/laravel-nextstep-collective.git
    cd job-board
    ```
 
@@ -82,9 +83,7 @@ To get started with the application, follow these steps:
 ## Contributing
 
 Contributions are welcome! Please submit a pull request or open an issue for any improvements or bug fixes.
-Contributions are welcome! Please submit a pull request or open an issue for any improvements or bug fixes.
 
 ## License
 
-This project is open-source and available under the [MIT License](LICENSE).
 This project is open-source and available under the [MIT License](LICENSE).

@@ -2,8 +2,10 @@
     "$schema": "https://getcomposer.org/schema.json",
     "name": "laravel/laravel",
     "type": "project",
-    "description": "The skeleton application for the Laravel framework.",
+    "description": "A super simple job board.",
     "keywords": [
+        "job",
+        "NextStep Collective",
         "laravel",
         "framework"
     ],

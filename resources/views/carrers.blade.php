@@ -1,20 +1,20 @@
 <x-layout>
-    <section class="text-center mb-10">
+    <x-section>
         <h2 class="text-2xl font-bold mb-2">Our Mission</h2>
-        <p class="text-gray-700">We’re building the future of hiring by connecting talented developers with companies that care. At [YourCompany], we value creativity, kindness, and code that makes lives better.</p>
-    </section>
+        <p class="text-gray-700">We’re building the future of hiring by connecting talented developers with companies that care. At NextStep Collective, we value creativity, kindness, and code that makes lives better.</p>
+    </x-section>
 
     <section class="text-center mb-10">
         <h2 class="text-2xl font-bold mb-4">Life at Our Company</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div class="flex justify-center">
-                <img src="https://placehold.co/600x400" alt="Team smiling" class="rounded-xl shadow" />
+                <img src="{{ Vite::asset('resources/images/PixelPerfect__coworkers_ranging_in_age_from_late_1.jpg') }}" alt="Team smiling" class="rounded-xl shadow" />
             </div>
             <div class="flex justify-center">
-                <img src="https://placehold.co/600x400" alt="Office space" class="rounded-xl shadow" />
+                <img src="{{ Vite::asset('resources/images/PixelPerfect_team_of_five_3.jpg') }}" alt="Hackathon photo" class="rounded-xl shadow" />
             </div>
             <div class="flex justify-center">
-                <img src="https://placehold.co/600x400" alt="Hackathon photo" class="rounded-xl shadow" />
+                <img src="{{ Vite::asset('resources/images/PixelPerfect__office_with_an_open_workspace_fil_2.jpg') }}" alt="Office space" class="rounded-xl shadow" />
             </div>
         </div>
     </section>
