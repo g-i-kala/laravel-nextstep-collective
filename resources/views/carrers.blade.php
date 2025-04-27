@@ -3,8 +3,7 @@
         <h2 class="text-2xl font-bold mb-2">Our Mission</h2>
         <p class="text-gray-700">We’re building the future of hiring by connecting talented developers with companies that care. At NextStep Collective, we value creativity, kindness, and code that makes lives better.</p>
     </x-section>
-
-    <section class="text-center mb-10">
+    <x-section>
         <h2 class="text-2xl font-bold mb-4">Life at Our Company</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div class="flex justify-center">
@@ -17,9 +16,9 @@
                 <img src="{{ Vite::asset('resources/images/PixelPerfect__office_with_an_open_workspace_fil_2.jpg') }}" alt="Office space" class="rounded-xl shadow" />
             </div>
         </div>
-    </section>
+    </x-section>
 
-    <section class="text-center mb-10">
+    <x-section>
         <h2 class="text-2xl font-bold mb-4">We’re Hiring In:</h2>
         <ul class="list-disc list-inside text-gray-700 space-y-1">
             <li>Engineering</li>
@@ -27,9 +26,9 @@
             <li>Marketing</li>
             <li>People & Culture</li>
         </ul>
-    </section>
+    </x-section>
     
-    <section class="text-center mb-10">
+    <x-section>
         <h2 class="text-2xl font-bold mb-4">What You Get</h2>
         <div class="grid md:grid-cols-2 gap-6">
             <div class="p-4 bg-green-50 rounded-xl shadow">
@@ -42,15 +41,15 @@
             </div>
             <!-- Add more benefits -->
         </div>
-    </section>
+    </x-section>
     
-    <section class="text-center mt-10">
+    <x-section>
         <h2 class="text-2xl font-bold mb-2">Ready to Join Us?</h2>
         <p class="text-gray-600 mb-4">Check out our open positions and find the right fit for you.</p>
         <x-link-button href="/">
             View Open Jobs
         </x-link-button>
-    </section>
+    </x-section>
     
 
 </x-layout>

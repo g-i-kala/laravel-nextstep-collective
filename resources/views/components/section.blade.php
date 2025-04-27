@@ -1,3 +1,3 @@
-<section class="text-center my-8">
+<section class="text-center my-16">
     {{ $slot }}
 </section>
