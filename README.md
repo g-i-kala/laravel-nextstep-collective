@@ -7,7 +7,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-# Job Board Application
+# NextStep Collective - Job Board Application
 
 Welcome to the Job Board Application - NextStep Collective! This project is a web-based platform for posting and browsing job listings. It is built with Laravel and showcases various features and best practices in web development.
 
