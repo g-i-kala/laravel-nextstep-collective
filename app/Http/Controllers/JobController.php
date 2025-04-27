@@ -22,9 +22,12 @@ class JobController extends Controller
     {
         $jobs = Job::latest()->with(['employer', 'tags'])->get()->groupBy('featured');
 
+        $featuredJobs = $jobs->get(1, collect());
+        $regularJobs = $jobs->get(0, collect());
+
         return view('jobs.index', [
-            'featuredJobs' => $jobs[1],
-            'jobs' => $jobs[0], //paginate later
+            'featuredJobs' => $featuredJobs,
+            'jobs' => $regularJobs,
             'tags' => Tag::all(),
         ]);
     }
