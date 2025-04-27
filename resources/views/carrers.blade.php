@@ -7,13 +7,13 @@
         <h2 class="text-2xl font-bold mb-4">Life at Our Company</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div class="flex justify-center">
-                <img src="{{ Vite::asset('resources/images/PixelPerfect__coworkers_ranging_in_age_from_late_1.jpg') }}" alt="Team smiling" class="rounded-xl shadow" />
+                <img src="{{ Vite::asset('resources/images/NextStep__coworkers_ranging_in_age_from_late_1.jpg') }}" alt="Team smiling" class="rounded-xl shadow" />
             </div>
             <div class="flex justify-center">
-                <img src="{{ Vite::asset('resources/images/PixelPerfect_team_of_five_3.jpg') }}" alt="Hackathon photo" class="rounded-xl shadow" />
+                <img src="{{ Vite::asset('resources/images/NextStep_team_of_five_3.jpg') }}" alt="Hackathon photo" class="rounded-xl shadow" />
             </div>
             <div class="flex justify-center">
-                <img src="{{ Vite::asset('resources/images/PixelPerfect__office_with_an_open_workspace_fil_2.jpg') }}" alt="Office space" class="rounded-xl shadow" />
+                <img src="{{ Vite::asset('resources/images/NextStep__office_with_an_open_workspace_fil_2.jpg') }}" alt="Office space" class="rounded-xl shadow" />
             </div>
         </div>
     </x-section>
