@@ -4,16 +4,14 @@
 
         <x-forms.form method="GET" class="w-full flex flex-col justify-between gap-4">
             <div class="flex flex-col md:flex-row items-center justify-between space-x-4">
-                <x-forms.input label="name" name="name" placeholder="Filter by title" value="{{ request('name') }}" />
-                <x-forms.input label="location" name="location" placeholder="Filter by location" value="{{ request('location') }}" />
+                <x-forms.input label="Name" name="name" placeholder="Filter by title" value="{{ request('name') }}" />
+                <x-forms.input label="Location" name="location" placeholder="Filter by location" value="{{ request('location') }}" />
                 <x-forms.button class="mt-4">Filter</x-forms.button>
             </div>
-            <div class="flex items-center justify-end space-x-4">
+            <div class="flex items-center justify-end mb-4">
                 <x-forms.filter-clear>Clear Filter</x-forms.filter-clear>
             </div>
         </x-forms.form>
-
-        <x-forms.filter-clear>Clear Filter</x-forms.filter-clear>
 
         <table class="w-full table-auto border-collapse border">
             <thead>

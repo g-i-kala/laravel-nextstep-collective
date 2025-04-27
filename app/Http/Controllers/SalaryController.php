@@ -13,23 +13,25 @@ class SalaryController extends Controller
     public function index(Request $request)
     {
 
+        $titleFilter = $request->input('title');
+        $tagFilter = $request->input('tag');
 
         $query = Job::query();
-        if ($request->filled('title')) {
-            $query->where('title', 'like', '%' . $request->title . '%');
-        }
 
-        if ($request->filled('location')) {
-            $query->where('location', 'like', '%' . $request->location . '%');
-        }
+        $query->filterByTitle($titleFilter);
 
-        if ($request) {
+        $salaries = $query
+            ->selectRaw('title,  AVG(salary) as avg')
+            ->groupBy('title')
+            ->orderBy('avg_max', 'desc')
+            ->get();
 
-            $salaries = $query
-                ->selectRaw('title,  AVG(salary) as avg')
-                ->groupBy('title')
-                ->orderBy('avg_max', 'desc')
-                ->get();
+        if (!empty($tagFilter)) {
+            $query
+            ->join('job_tag', 'jobs.id', '=', 'job_tag.job_id')
+            ->join('tags', 'tags.id', '=', 'job_tag.tag_id')
+            ->filterByTag($tagFilter);
+
         }
 
         return view('salaries', [

@@ -62,4 +62,13 @@ class Job extends Model
 
         return $query;
     }
+
+    public function scopeFilterByTag($query, $tag)
+    {
+        if (!empty($tag)) {
+            $query->where('tags.name', $tag);
+        }
+
+        return $query;
+    }
 }
