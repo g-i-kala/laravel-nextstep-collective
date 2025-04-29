@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\Http\Requests\JobRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use App\Http\Requests\StoreJobRequest;
 use App\Http\Requests\UpdateJobRequest;
 
@@ -54,6 +55,10 @@ class JobController extends Controller
                 $job->tag($tag);
             }
         }
+
+        Mail::to('5star@wp.pl')->send(
+            new \App\Mail\JobPosted($job)
+        );
 
         return redirect('/');
     }
