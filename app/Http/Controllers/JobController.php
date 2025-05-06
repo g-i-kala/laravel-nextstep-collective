@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Job;
 use App\Models\Tag;
+use App\Mail\JobPosted;
 use App\Models\Employer;
 use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
@@ -56,8 +57,8 @@ class JobController extends Controller
             }
         }
 
-        Mail::to('5star@wp.pl')->send(
-            new \App\Mail\JobPosted($job)
+        Mail::to($job->employer->user)->queue(
+            new JobPosted($job)
         );
 
         return redirect('/');
