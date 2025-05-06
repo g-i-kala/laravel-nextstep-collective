@@ -23,7 +23,7 @@ class SalaryController extends Controller
         $salaries = $query
             ->selectRaw('title,  AVG(salary) as avg, url')
             ->groupBy('title')
-            ->orderBy('avg_max', 'desc')
+            ->orderBy('avg', 'desc')
             ->get();
 
         if (!empty($tagFilter)) {
