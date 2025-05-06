@@ -15,7 +15,7 @@ class RegisteredUserController extends Controller
      */
     public function index()
     {
-       //
+        //
     }
 
     /**
@@ -39,12 +39,16 @@ class RegisteredUserController extends Controller
 
         $employerAttributes = $request->validate([
             'employer' => ['required'],
-            'logo' => ['required', File::types('png', 'jpg', 'webp')],
+            'logo' => ['required', 'image', 'mimes:png,jpg,webp', 'max:2048'],
         ]);
 
         $user = User::create($userAttributes);
-        $logoPath = $request->logo->store('logos');
-        
+
+        if ($request->hasFile('logo')) {
+            $file = $request->file('logo');
+            $logoPath = $file->storeAs('logos', $file->getClientOriginalName(), 'public');
+        }
+
         $user->employer()->create([
             'name' => $employerAttributes['employer'],
             'logo' => $logoPath,

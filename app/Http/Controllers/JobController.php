@@ -7,13 +7,9 @@ use App\Models\Tag;
 use App\Mail\JobPosted;
 use App\Models\Employer;
 use Illuminate\Support\Arr;
-use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
 use App\Http\Requests\JobRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
-use App\Http\Requests\StoreJobRequest;
-use App\Http\Requests\UpdateJobRequest;
 
 class JobController extends Controller
 {
