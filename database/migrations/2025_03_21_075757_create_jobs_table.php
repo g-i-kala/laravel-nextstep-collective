@@ -3,10 +3,9 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use \App\Models\Employer;
+use App\Models\Employer;
 
-return new class extends Migration
-{
+return new class () extends Migration {
     /**
      * Run the migrations.
      */
@@ -16,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(Employer::class);
             $table->string('title');
-            $table->string('salary');
+            $table->decimal('salary', 10, 2);
             $table->string('location');
             $table->string('schedule')->default('Full Time');
             $table->string('url');
