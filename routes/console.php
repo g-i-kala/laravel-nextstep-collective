@@ -12,4 +12,4 @@ Artisan::command('inspire', function () {
 
 
 
-Schedule::command('model:prune --model="App\Models\Tag"')->everyMinute();
+Schedule::command('model:prune --model="App\Models\Tag"')->daily();

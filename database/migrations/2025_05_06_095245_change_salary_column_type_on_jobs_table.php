@@ -11,10 +11,17 @@ return new class () extends Migration {
      */
     public function up(): void
     {
-        // Schema::table('jobs', function (Blueprint $table) {
-        //     $table->decimal('salary', 10, 2)->change();
-        // });
-        DB::statement('ALTER TABLE jobs ALTER COLUMN salary TYPE numeric(10,2) USING salary::numeric');
+        if (DB::getDriverName() === 'pgsql') {
+
+            DB::statement('ALTER TABLE jobs ALTER COLUMN salary TYPE numeric(10,2) USING salary::numeric');
+
+        } else {
+
+            Schema::table('jobs', function (Blueprint $table) {
+                $table->decimal('salary', 10, 2)->change();
+            });
+        }
+
     }
 
     /**
