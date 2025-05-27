@@ -5,7 +5,8 @@
         <x-forms.form method="GET" class="w-full flex flex-col justify-between gap-4">
             <div class="flex flex-col md:flex-row items-center justify-between space-x-4">
                 <x-forms.input label="Name" name="name" placeholder="Filter by title" value="{{ request('name') }}" />
-                <x-forms.input label="Location" name="location" placeholder="Filter by location" value="{{ request('location') }}" />
+                <x-forms.input label="Location" name="location" placeholder="Filter by location"
+                    value="{{ request('location') }}" />
                 <x-forms.button class="mt-4">Filter</x-forms.button>
             </div>
             <div class="flex items-center justify-end mb-4">
@@ -22,12 +23,12 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($employers as $employer)
+                @foreach ($employers as $employer)
                     <tr class="border-t">
                         <td class="p-2 border">{{ $employer->name }}</td>
                         <td class="p-2 border">
-                              <a href="{{ $employer->jobUrl }}" class="hover:text-blue-600"> {{ $employer->jobTitle }} 
-                            </td>
+                            <a href="{{ $employer->jobUrl }}" class="hover:text-accent-hover"> {{ $employer->jobTitle }}
+                        </td>
                         <td class="p-2 border">{{ $employer->jobLocation }}</td>
                     </tr>
                 @endforeach

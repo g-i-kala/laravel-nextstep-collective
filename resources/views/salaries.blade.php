@@ -12,8 +12,8 @@
                 <x-forms.filter-clear>Clear Filter</x-forms.filter-clear>
             </div>
         </x-forms.form>
-  
-        
+
+
 
         <table class="w-full table-auto border-collapse border">
             <thead>
@@ -23,10 +23,10 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($salaries as $salary)
+                @foreach ($salaries as $salary)
                     <tr class="border-t">
                         <td class="p-2 border">
-                            <a href="{{ $salary->url }}" class="hover:text-blue-600">{{ $salary->title }}</a>
+                            <a href="{{ $salary->url }}" class="hover:text-accent-hover">{{ $salary->title }}</a>
                         </td>
                         <td class="p-2 border">${{ number_format($salary->avg, 0) }}</td>
                     </tr>

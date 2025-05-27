@@ -13,7 +13,7 @@
     @vite (['resources/js/app.js'])
 </head>
 
-<body class="flex flex-col min-h-screen bg-white text-black font-henken">
+<body class="flex flex-col min-h-screen bg-bg text-text font-henken">
     <x-partials.header />
     <div class="wrapper px-10 flex-grow">
 

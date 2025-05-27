@@ -2,7 +2,7 @@
 <x-layout>
     <x-page-heading>Edit Job</x-page-heading>
 
-    <x-forms.form method="POST" action="/jobs/update/{{ $job->id}}">
+    <x-forms.form method="POST" action="/jobs/update/{{ $job->id }}">
         @csrf
         @method('PATCH')
         <x-forms.input label="Title" name="title" value="{{ $job->title }}" />
@@ -15,14 +15,15 @@
         </x-forms.select>
 
         <x-forms.input label="Url" name="url" value="{{ $job->url }}" />
-        <x-forms.checkbox label="Feature (Costs Extra)" name="featured" :isChecked="$job->featured"/>
+        <x-forms.checkbox label="Feature (Costs Extra)" name="featured" :isChecked="$job->featured" />
 
-        <x-forms.input label="Tags (comma separated)" name="tags" value="{{ implode(', ', $job->tags->pluck('name')->toArray()) }}" />
+        <x-forms.input label="Tags (comma separated)" name="tags"
+            value="{{ implode(', ', $job->tags->pluck('name')->toArray()) }}" />
 
         <x-forms.divider />
 
         <x-forms.button>Update</x-forms.button>
-        <x-link-button href="/jobs/show" class="bg-gray-500">Cancel</x-link-button>
+        <x-link-button href="/jobs/show" class="bg-muted-text">Cancel</x-link-button>
 
     </x-forms.form>
 
