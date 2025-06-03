@@ -21,7 +21,7 @@ class JobFactory extends Factory
             'employer_id' => Employer::factory(),
             'title' => fake()->jobTitle(),
             'salary' => fake()->numberBetween(10000, 50000),
-            'location' => 'Remote',
+            'location' => fake()->city(),
             'schedule' => 'Full Time',
             'url' => fake()->url(),
             'featured' => false,
